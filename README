@@ -1,0 +1,10 @@
+Эксцстастик — это графическая программа для получения статистики из файлов microsoft excel.
+Программа подсчитывает и выдаёт количество упоминаний каждого элемента в выбранном столбце.
+Автор: DarkneSS [https://github.com/DAP-DarkneSS]
+Код распространяется под GNU LESSER GENERAL PUBLIC LICENSE: http://www.gnu.org/copyleft/lesser.html
+Программа написана на языке Python с использованием графической библиотеки Tkinter.
+
+Excstatistic is a graphical program to get statistic from microsoft excel files.
+Authors are DarkneSS [https://github.com/DAP-DarkneSS]
+The code is distributed under the GNU LESSER GENERAL PUBLIC LICENSE: http://www.gnu.org/copyleft/lesser.html
+The program is written in the Python programming language using Tkinter graphical toolkit.
