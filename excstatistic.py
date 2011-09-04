@@ -46,6 +46,7 @@ def column_error():
 def button_fopen():
     global filename
     filename = askopenfilename()
+    print(filename)
 
 def button_fmake():
 #Функция для кнопки. Записывается без аргументов!
