@@ -15,7 +15,7 @@ root.resizable(False, False)
 #Создаётся окно приложения, задаётся заголовок.
 #Нельзя изменять размер окна.
 
-label_title = Label(root, text = u"Статистика количества упоминания элементов\nпо выбранному столбцу таблицы")
+label_title = Label(root, text = u"Количество упоминаний элементов")
 label_title.pack()
 #Надпись с описанием программы.
 
@@ -43,6 +43,7 @@ entry_column.insert(END, u"A")
 def column_error():
     text_out.insert(END, u"Ошибка: введите букву столбца от A до Z!")
 
+filename = ""
 def button_fopen():
     global filename
     filename = askopenfilename()

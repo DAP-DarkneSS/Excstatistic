@@ -28,9 +28,12 @@ def xlsx(filename, t_sheet, t_column):
                  #matrix.append(str(loads(dumps(cell.value))))
                  t = dumps(cell.value)
                  t = t.replace("V\\", "\\")
-                 t = t.replace("\np1\n.", "")
+                 t = t.replace("\np1", "")
+                 t = t.replace("\n.", "")
                  t = unicode(t, "utf-8")
-                 matrix.append(t)
+                 print(t)
+                 if t != "N.":
+                     matrix.append(t)
         else:
             matrix.append(u"Ошибка: введите букву столбца от A до Z!")
     else:

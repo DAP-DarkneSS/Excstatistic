@@ -19,7 +19,7 @@ def excstatistic(filename, t_sheet, t_column):
     elif filename.endswith(".xls"):
         matrix = xls(filename, t_sheet, t_column)
     else:
-        text =  u"Ошибка: неправильный файл!"
+        matrix.append(u"Ошибка: откройте файл таблицы Excel!")
     try:
         if not (matrix[0]).startswith(u"Ошибка: "):
             for i in xrange(len(matrix)):
