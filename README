@@ -1,11 +1,32 @@
 Эксцстастик — это графическая программа для получения статистики из файлов microsoft excel.
 Программа подсчитывает и выдаёт количество упоминаний каждого элемента в выбранном столбце.
+
+Установка: в Linux установите пакеты python, python-minimal, python-xlrd, python-openpyxl и python-tk,
+распакуйте архив, сделайте excstatistic.py исполняемым и запустите его в эмуляторе терминала
+[убедитесь, что версия python-openpyxl не меньше 1.5, deb можно скачать здесь:
+http://packages.ubuntu.com/oneiric/all/python-openpyxl/download]; в Windows установите python 2.7
+[http://www.python.org/download/], python-xlrd [http://www.lexicon.net/sjmachin/xlrd.htm]
+и python-openpyxl 1.5 [https://bitbucket.org/ericgazoni/openpyxl/downloads, папка openpyxl должна быть
+в подкаталоге python/Lib/site-packages] с оффициальных сайтов.
+
 Автор: DarkneSS [https://github.com/DAP-DarkneSS]
 Код распространяется под GNU LESSER GENERAL PUBLIC LICENSE: http://www.gnu.org/copyleft/lesser.html
-Программа написана на языке Python с использованием графической библиотеки Tkinter.
+Программа написана на языке Python с использованием графической библиотеки Tkinter,
+python-xlrd для excel 2003 и старше (*.xls) и python-openpyxl для excel 2007 и новее (*.xlsx).
+
 
 Excstatistic is a graphical program to get statistic from microsoft excel files.
 The program calculates and displays the number of repetitions of each item in the selected column.
-Authors are DarkneSS [https://github.com/DAP-DarkneSS]
+
+Installation: in Linux you should install packages python, python-minimal python-xlrd, python-openpyxl
+and python-tk, unpack the archive, make excstatistic.py executable and run it in the emulator of the terminal
+[make sure that the version of python-openpyxl is not less than 1.5, deb can be downloaded here:
+http://packages.ubuntu.com/oneiric/all/python-openpyxl/download]; in Windows you should install python 2.7
+[http://www.python.org/download/], python-xlrd [http://www.lexicon.net/sjmachin/xlrd.htm]
+and python-openpyxl 1.5 [https://bitbucket.org/ericgazoni/openpyxl/downloads, folder openpyxl should be
+in a subdirectory python/Lib/site-packages] from the official web sites.
+
+Author is DarkneSS [https://github.com/DAP-DarkneSS]
 The code is distributed under the GNU LESSER GENERAL PUBLIC LICENSE: http://www.gnu.org/copyleft/lesser.html
-The program is written in the Python programming language using Tkinter graphical toolkit.
+The program is written in the Python programming language with Tkinter graphical toolkit, python-xlrd
+for excel 2003 and older (files *.xls) and python-openpyxl for excel 2007 and later (files *.xlsx).
