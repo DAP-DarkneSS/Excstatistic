@@ -3,37 +3,43 @@
 #Указывается язык и кодировка.
 
 from xlrd import *
-from cPickle import dumps, loads
-#Загружается модуль импорта таблиц Excel *.xls, графическая библиотека
-#и модуль, содержащий текстовый виджет с полосой прокрутки.
+#Загружается модуль работы с таблицами Excel *.xls.
 
 def xls(filename, t_sheet, t_column):
-    matrix = []
+#Функция принимает строковые значения имени файла, номера листа и колонки.
+
+    matrix = [""]
+#Создаётся ряд с пустой строкой (первое значение).
+
     sheet_number = int(t_sheet)
+#Номер листа преобразуется в целое число.
+
     if len(t_column) == 1:
+#Проверка количества символом в номере колонки.
+
         column_number = (ord(t_column) - 65)
+#Номер колонки преобразуется в число в соответствии с кодовой таблицей.
+
         if (-1 < column_number < 26):
+#Проверка, является ли номер колонки буквой от A до Z.
+
             book = open_workbook(filename)
+#Открывается файл.
+
             sheet = book.sheet_by_index(sheet_number - 1)
+#Открывается нужный лист.
+
             for i in xrange(sheet.nrows):
                 cell = sheet.cell_value(rowx=i, colx=column_number)
-                t = dumps(cell)
-                t = t.replace("V\\", "\\")
-                t = t.replace("\np1", "")
-                t = t.replace("\n.", "")
-                t = t.replace("\\", "/\\")
-                print(repr(t))
-                t = t.encode('utf-8')
-                print(repr(t))
-                t = t.decode('utf-8')
-                print(repr(t))
-                if t != "S''":
-                    matrix.append(t)
+                matrix.append(cell)
+#Значения считываются из колонки и записываются в ряд.
+
         else:
             matrix.append(u"Ошибка: введите букву столбца от A до Z!")
     else:
         matrix.append(u"Ошибка: введите букву столбца от A до Z!")
-
+#Ошибка возвращается, когда номер колонки не является буквой от A до Z.
 
         
     return(matrix)
+#Функция возвращает ряд.

@@ -3,11 +3,9 @@
 #Указывается язык и кодировка.
 
 from Tkinter import *
-from ScrolledText import *
 from tkFileDialog import *
 from body import excstatistic
-#Загружается модуль импорта таблиц Excel *.xls, графическая библиотека
-#и модуль, содержащий текстовый виджет с полосой прокрутки.
+#Загружается основной модуль, графическая библиотека и модуль выбора файла.
 
 root=Tk()
 root.title(u"Excstatistic")
@@ -38,10 +36,7 @@ entry_sheet.insert(END, u"1")
 entry_column.insert(END, u"A")
 
 #Надписи, описывающие вводимые значения, выровнены по левому краю.
-#Элементы для ввода значений шириной в 15 знаков выровнены по правому краю.
-
-def column_error():
-    text_out.insert(END, u"Ошибка: введите букву столбца от A до Z!")
+#Элементы для ввода значений шириной в 3 знака выровнены по правому краю.
 
 filename = ""
 def button_fopen():
@@ -64,11 +59,11 @@ button_make = Button(frame_buttonz, text=u"Анализировать", command=
 button_make.pack(side=LEFT)
 button_exit = Button(frame_buttonz, text=u"Выход", command=root.destroy)
 button_exit.pack(side=RIGHT)
-#Рамка для кнопок. Кнопка генерирования и выхода из приложения.
+#Рамка для кнопок. Кнопки выбора файла, запуска анализа и выхода из приложения.
 
-text_out=ScrolledText(root, height=11, width=11)
+text_out=Text(root, height=1, width=11)
 text_out.pack(fill=BOTH)
-#Текстовый виджет с полосой прокрутки растянут по ширине окна приложения.
+#Текстовый виджет растянут по ширине окна приложения.
 
 root.mainloop()
 #Окончание текста приложения.
