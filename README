@@ -7,7 +7,7 @@
 http://packages.ubuntu.com/oneiric/all/python-openpyxl/download]; в Windows установите python 2.7
 [http://www.python.org/download/], python-xlrd [http://www.lexicon.net/sjmachin/xlrd.htm]
 и python-openpyxl 1.5 [https://bitbucket.org/ericgazoni/openpyxl/downloads, папка openpyxl должна быть
-в подкаталоге python/Lib/site-packages] с оффициальных сайтов.
+в подкаталоге python/Lib/site-packages] с официальных сайтов.
 
 Автор: DarkneSS [https://github.com/DAP-DarkneSS]
 Код распространяется под GNU LESSER GENERAL PUBLIC LICENSE: http://www.gnu.org/copyleft/lesser.html
