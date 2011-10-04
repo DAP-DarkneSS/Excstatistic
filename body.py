@@ -48,7 +48,7 @@ def excstatistic(filename, t_sheet, t_column):
 #Иначе импортированное значение добавляется к ряду с проанализированными значениями
 #и создаётся соотвествующий счётчик.
 
-        if platform == 'win32':
+        if platform.startswith("win"):
             system('cls')
         else:
             system('clear')
