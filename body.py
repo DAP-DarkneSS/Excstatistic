@@ -58,7 +58,7 @@ def excstatistic(filename, t_sheet, t_column):
         for i in xrange(len(name)):
             print(u"\n" + str(name_count[i]) + u" @ ")
             print(name[i])
-        text = u"Результаты получены и выведены в консоли."
+        text = u"Результаты выведены в консоли."
 #Вывод значений, заполнение строки предупреждением.
 
     else:

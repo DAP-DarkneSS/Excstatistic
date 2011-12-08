@@ -44,11 +44,9 @@ def button_fopen():
 
 def button_fmake():
 #Функция для кнопки. Записывается без аргументов!
-    text_out.delete(1.0, END)
-#Очистка текстового поля.
-    text = excstatistic(filename, entry_sheet.get(), entry_column.get())
-    text_out.insert(END, text)
-#Передача внешней функции всех параметров. Получение теста и передача его в поле.
+    text_info = excstatistic(filename, entry_sheet.get(), entry_column.get())
+    text_out.config(text = text_info)
+#Передача внешней функции всех параметров. Получение теста и передача его в надпись.
 
 filename = ""
 #Создаётся пустая переменная для имени файла.
@@ -76,10 +74,9 @@ button_make = MyButton(frame_buttonz, u"Анализировать", button_fmak
 button_exit = MyButton(frame_buttonz, u"Выход", root.destroy)
 #Кнопки выбора файла, запуска анализа и выхода из приложения.
 
-text_out = Text(root, height = 1, width = 11)
-##text_out = Entry(root, width = 11)
-text_out.pack(side = BOTTOM, fill = BOTH)
-#Текстовый виджет растянут по ширине окна приложения.
+text_out = Label(root)
+text_out.pack(side = LEFT, fill = BOTH)
+#Информационная надпись растянута по ширине окна приложения, прикреплена к левому краю.
 
 root.mainloop()
 #Окончание текста приложения.
