@@ -7,62 +7,78 @@ from tkFileDialog import *
 from body import excstatistic
 #Загружается основной модуль, графическая библиотека и модуль выбора файла.
 
-root=Tk()
-root.title(u"Excstatistic")
-root.resizable(False, False)
-#Создаётся окно приложения, задаётся заголовок.
-#Нельзя изменять размер окна.
+class MyEntry:
+#Класс для улучшения читаемости кода однотипных элементов для ввода параметров.
+    def __init__(self, place_class, string_class, string_2_class):
+#При создании принимается место прикрепления виджета и строковое значение для надписи.
+        self.frame_class = Frame(place_class)
+        self.frame_class.pack(side = TOP, fill = BOTH)
+#Внутри – рамка для виджетов, растягивается по ширине окна.
+        self.label_class = Label(self.frame_class, text = string_class)
+        self.label_class.pack(side = LEFT)
+#В ней – надписи для описания вводимых значений выровнены по левому краю.
+        self.entry_class = Entry(self.frame_class, width = 3)
+        self.entry_class.pack(side = RIGHT)
+#И элементы для ввода значений шириной в 3 знаков выровнены по правому краю.
+        self.entry_class.insert(END, string_2_class)
+#Вставка значения по умолчанию.
+    def get(self):
+        return(self.entry_class.get())
+#Метод .get() передаётся от элемента для ввода объекту описываемого класса.
 
-label_title = Label(root, text = u"Количество упоминаний элементов")
-label_title.pack()
-#Надпись с описанием программы.
+class MyButton:
+#Класс для улучшения читаемости кода однотипных элементов кнопок.
+    def __init__(self, place_class, string_class, command_class):
+#При создании принимается место прикрепления виджета, строковое значение для надписи
+#и строковое для установления команды при нажатии.
+        self.button_class = Button(place_class, text = string_class, command = command_class)
+        self.button_class.pack(side = LEFT)
+#Кнопка прикрепляется к левому краю.
 
-frame_sheet = Frame(root)
-frame_sheet.pack(fill=BOTH)
-frame_column = Frame(root)
-frame_column.pack(fill=BOTH)
-#Создаётся три рамки для виджетов. Рамки растягиваются по ширине окна.
-
-label_sheet = Label(frame_sheet, text = u"Анализируемый лист:")
-label_sheet.pack(side=LEFT)
-entry_sheet = Entry(frame_sheet, width=3)
-entry_sheet.pack(side=RIGHT)
-label_column = Label(frame_column, text = u"Анализируемый столбец:")
-label_column.pack(side=LEFT)
-entry_column = Entry(frame_column, width=3)
-entry_column.pack(side=RIGHT)
-
-entry_sheet.insert(END, u"1")
-entry_column.insert(END, u"A")
-
-#Надписи, описывающие вводимые значения, выровнены по левому краю.
-#Элементы для ввода значений шириной в 3 знака выровнены по правому краю.
-
-filename = ""
 def button_fopen():
+#Функция для кнопки открытия файла.
     global filename
+#Переменная объявляется глобальной, чтобы вывести значение за функцию.
     filename = askopenfilename()
+#Собственно открытие файла.
 
 def button_fmake():
 #Функция для кнопки. Записывается без аргументов!
-
     text_out.delete(1.0, END)
+#Очистка текстового поля.
     text = excstatistic(filename, entry_sheet.get(), entry_column.get())
     text_out.insert(END, text)
 #Передача внешней функции всех параметров. Получение теста и передача его в поле.
-    
-frame_buttonz = Frame(root)
-frame_buttonz.pack(fill=BOTH)
-button_open = Button(frame_buttonz, text=u"Открыть файл", command=button_fopen)
-button_open.pack(side=LEFT)
-button_make = Button(frame_buttonz, text=u"Анализировать", command=button_fmake)
-button_make.pack(side=LEFT)
-button_exit = Button(frame_buttonz, text=u"Выход", command=root.destroy)
-button_exit.pack(side=RIGHT)
-#Рамка для кнопок. Кнопки выбора файла, запуска анализа и выхода из приложения.
 
-text_out=Text(root, height=1, width=11)
-text_out.pack(fill=BOTH)
+filename = ""
+#Создаётся пустая переменная для имени файла.
+
+root=Tk()
+#Создаётся окно приложения.
+root.title(u"Excstatistic")
+#Задаётся заголовок.
+root.resizable(False, False)
+#Нельзя изменять размер окна.
+
+label_title = Label(root, text = u"Количество упоминаний элементов\nв столбце Excel")
+label_title.pack()
+#Надпись с описанием программы.
+
+entry_sheet = MyEntry(root, u"Анализируемый лист:", u"1")
+entry_column = MyEntry(root, u"Анализируемый столбец:", u"A")
+#Создаётся необходимое количество объектов класса элементов ввода.
+
+frame_buttonz = Frame(root)
+frame_buttonz.pack(side = TOP, fill = BOTH)
+#Рамка для кнопок.
+button_open = MyButton(frame_buttonz, u"Открыть файл", button_fopen)
+button_make = MyButton(frame_buttonz, u"Анализировать", button_fmake)
+button_exit = MyButton(frame_buttonz, u"Выход", root.destroy)
+#Кнопки выбора файла, запуска анализа и выхода из приложения.
+
+text_out = Text(root, height = 1, width = 11)
+##text_out = Entry(root, width = 11)
+text_out.pack(side = BOTTOM, fill = BOTH)
 #Текстовый виджет растянут по ширине окна приложения.
 
 root.mainloop()
